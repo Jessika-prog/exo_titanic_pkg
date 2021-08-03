@@ -17,9 +17,6 @@ class ML:
 
     def model_predict_test(self, X = None):
         fitted_model = self.model_fitting()
-        print(self.X_test)
-        print("############")
-        print(X)
         if X is None : 
             y_pred = fitted_model.predict(self.X_test)
         else : 
