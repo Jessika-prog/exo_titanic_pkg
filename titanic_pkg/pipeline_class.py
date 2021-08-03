@@ -12,9 +12,7 @@ from titanic_pkg.data import Data
 class PipelineClass():
 
     def __init__(self):
-        self.df_titanic = Data().lecture_df()
-        self.X_train, self.X_test, self.y_train, self.y_test = Preprocessing().select_x_y()
-
+        pass
 
     def creation_pipeline(self):
         numeric_transformer = Pipeline(steps=[('scaler', RobustScaler())])
@@ -30,17 +28,4 @@ class PipelineClass():
 
         reg = Pipeline(steps=[('preprocessor',
                             preprocessor), ('regressor', RandomForestClassifier())])
-
         return reg
-
-    def fit_predict(self):
-        reg = self.creation_pipeline()
-        reg.fit(self.X_train, self.y_train)
-        y_pred = reg.predict(self.X_test)
-        return y_pred
-
-    def fit_score(self):
-        reg = self.creation_pipeline()
-        reg.fit(self.X_train, self.y_train)
-        score = reg.score(self.X_test, self.y_test)
-        return score
