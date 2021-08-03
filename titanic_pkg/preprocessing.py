@@ -13,7 +13,6 @@ class Preprocessing():
     def drop_columns(self):
         self.df_titanic = self.df_titanic.drop(['alive', 'deck', 'embark_town', 'class', 'adult_male', 'sibsp', 'parch'],
         axis=1)
-        # return self.df_titanic
 
     def fill_na_age(self):
         age_mean = self.df_titanic.groupby('who').age.mean()
@@ -27,12 +26,10 @@ class Preprocessing():
                     self.df_titanic.age[i] = age_mean.man
                 else:
                     self.df_titanic.age[i] = age_mean.woman
-        # return self.df_titanic
 
     def change_type_category(self):
         self.df_titanic[['survived', 'pclass']] = self.df_titanic[['survived',
                                                  'pclass']].astype('category')
-        # return self.df_titanic
 
     def select_x_y(self):
         self.drop_columns()
