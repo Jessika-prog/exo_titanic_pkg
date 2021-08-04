@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <form action="http://127.0.0.1:8000/passenger_dict/" method="POST">
+        <div>
+          <label for="">Classe:</label>
+          <select name="pclass" id="">
+            <option value="1">1ère</option>
+            <option value="2">2nde</option>
+            <option value="3">3ème</option>
+          </select>
+        </div>
+    <div>
+      <label for="">Genre:</label>
+      <select name="sex" id="">
+        <option value="male">Mâle</option>
+        <option value="female">Femelle</option>
+      </select>
+    </div>
+        <div>
+          <label for="">Age:</label>
+          <input type="number" name="age" id="">
+        </div>
+    <div>
+      <label for="">Prix du billet:</label>
+      <input type="number" name="fare" id="">
+    </div>
+    <div>
+      <label for="">Ville d'embarquement:</label>
+      <select name="embarked" id="">
+        <option value="S">Southampton</option>
+        <option value="C">Cherbourg</option>
+        <option value="Q">Queenstown</option>
+      </select>
+    </div>
+    <div>
+      <label for="">Type de passager:</label>
+      <select name="who" id="">
+        <option value="man">Homme</option>
+        <option value="woman">Femme</option>
+        <option value="child">Enfant</option>
+      </select>
+    </div>
+    <div>
+      <label for="">Seul(e) ou accompagné(e)?</label>
+      <select name="alone" id="">
+        <option value="true">Seul</option>
+        <option value="false">Accompagné</option>
+      </select>
+    </div>
+    <button type="submit">Lancer la prédiction</button>
+  </form>
+</body>
+
+</html>
