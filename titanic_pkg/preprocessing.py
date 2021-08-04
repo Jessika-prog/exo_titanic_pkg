@@ -15,17 +15,10 @@ class Preprocessing():
         axis=1)
 
     def fill_na_age(self):
-        age_mean = self.df_titanic.groupby('who').age.mean()
-        self.df_titanic['age'] = self.df_titanic['age'].replace(np.nan, 'YES')
+        the_who = ['child','man','woman']
+        for i in the_who :
+            self.df_titanic.loc[self.df_titanic.who ==i,'age']= self.df_titanic.loc[self.df_titanic.who ==i,'age'].fillna(self.df_titanic.loc[self.df_titanic.who ==i,'age'].mean())
 
-        for i in range(len(self.df_titanic.age)):
-            if self.df_titanic.age[i] == 'YES':
-                if self.df_titanic.who[i] == 'child':
-                    self.df_titanic.age[i] = age_mean.child
-                elif self.df_titanic.who[i] == 'man':
-                    self.df_titanic.age[i] = age_mean.man
-                else:
-                    self.df_titanic.age[i] = age_mean.woman
 
     def change_type_category(self):
         self.df_titanic[['survived', 'pclass']] = self.df_titanic[['survived',
