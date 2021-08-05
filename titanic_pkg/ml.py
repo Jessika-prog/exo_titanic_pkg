@@ -1,6 +1,8 @@
 from sklearn.metrics import classification_report, plot_confusion_matrix
 from sklearn.model_selection import cross_val_score
 
+from joblib import dump
+
 from titanic_pkg.preprocessing import Preprocessing
 from titanic_pkg.data import Data
 from titanic_pkg.pipeline_class import PipelineClass
@@ -22,6 +24,7 @@ class ML:
             y_pred = fitted_model.predict(self.X_test)
         else : 
             y_pred = fitted_model.predict(X)
+            y_pred = 'Dead' if 0 else 'Alive'
         return y_pred, fitted_model
      
             
@@ -33,5 +36,6 @@ class ML:
         scores_cross = cross_val_score(fitted_model, self.X_test, self.y_test, cv=5)
         return accuracy_score, class_report, conf_matrix, scores_cross
         
-    def unseen_values(self,X=[]):
-        pass
+    def saving_model(self):
+        fitted_model = self.model_fitting()   
+        dump(fitted_model,'../api/DeadOrAlive.joblib')
