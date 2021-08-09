@@ -6,7 +6,7 @@ import uvicorn
 
 from titanic_pkg.ml import ML
 
-# from typing import optional
+from typing import Optional, Set
 from pydantic import BaseModel
 
 app = FastAPI()
@@ -19,14 +19,14 @@ async def get_root():
 model = joblib.load('DeadOrAlive.joblib')
 # prediction= ML()
 
-# class Passenger(BaseModel):
-#     pclass:int
-#     sex:str
-#     age:float
-#     fare:float
-#     embarked:str
-#     who:str
-#     alone:bool
+class Passenger(BaseModel):
+    pclass:int
+    sex:str
+    age:float
+    fare:float
+    embarked:str
+    who:str
+    alone:bool
 
 # def create_random_passenger():
 #     passenger_dict = {'pclass' : [random.randint(1,3)],
@@ -38,8 +38,8 @@ model = joblib.load('DeadOrAlive.joblib')
 #     'alone' : [random.choice([True, False])]}
 #     return  pd.DataFrame(passenger_dict)
 
-
-@app.get('/{passenger_info}')
+#option 1
+@app.get("/prediction/{passenger_info}")
 async def death_detector(passenger_info:str):
     pass_info_title= ['pclass','sex','age','fare','embarked','who','alone']
     pass_info_list = passenger_info.split('&')
@@ -48,43 +48,54 @@ async def death_detector(passenger_info:str):
     for info in pass_info_title:
         df_passenger.at[0,info] = pass_info_list[i]
         i+=1
+    result = model.predict(df_passenger)[0]
+    if result == 0 :
+        result = 'Dead'
+    else :
+        result = "Alive"
+    return {'état du passager à la fin de la croisiere':result, 'infos passager':passenger_info}
+
+#option 2
+@app.get("/prediction_path/")
+async def death_detector(pclass=1,sex='female',age=33,fare=45,embarked='S',who='child',alone=True):
+    passenger_dict = {'pclass' :[int(pclass)],
+    'sex' : [sex],
+    'age' : [int(age)],
+    'fare' : [int(fare)],
+    'embarked' : [embarked],
+    'who' : [who],
+    'alone' : [alone]}
+    passenger= pd.DataFrame(passenger_dict)
+    result = model.predict(passenger)[0]
+    if result == 0 :
+        result = 'Dead'
+    else :
+        result = "Alive"
+    return {'état du passager à la fin de la croisiere':result, 'infos passager':passenger_dict}
         
-    # pass_info_list = passenger_info.split('&')
-    # pclass = int(pass_info_list[0])
-    # sex = str(pass_info_list[1])
-    # age = float(pass_info_list[2])
-    # fare = float(pass_info_list[3])
-    # embarked = str(pass_info_list[4])
-    # who = str(pass_info_list[5])
-    # alone = bool(pass_info_list[6])
-    # passenger = pd.DataFrame(columns=['pclass','sex','age','fare','embarked','who','alone'],pclass,sex,)
-    #return{ 'pass info': pclass,'sex':sex,'age':age,'fare': fare,'embarked':embarked,'who':who,'alone':alone}
-    # passenger_dict = {'pclass' : [pclass],
-    # 'sex' : [sex],
-    # 'age' : [age],
-    # 'fare' : [fare],
-    # 'embarked' : [embarked],
-    # 'who' : [who],
-    # 'alone' : [alone]}
-    # return{'passenger infos ':passenger_dict}
-    # passenger_dict=create_random_passenger()
-    #passenger= pd.DataFrame(passenger_dict)
-    result = model.predict(df_passenger)
-    return {'état du passager à la fin de la croisiere':result}
 
-# @app.get('/prediction_path/{passenger}')
-# async def death_detector(pclass=1,sex='female',age=33,fare=45,embarked='S',who='child',alone=True):
-#     passenger_dict = {'pclass' :[int(pclass)],
-#     'sex' : [sex],
-#     'age' : [int(age)],
-#     'fare' : [int(fare)],
-#     'embarked' : [embarked],
-#     'who' : [who],
-#     'alone' : [alone]}
-#     passenger= pd.DataFrame(passenger_dict)
-#     result = prediction.model_predict_test(passenger)
-#     return {'response':result}
+class Item(BaseModel):
+    name: str
+    description: Optional[str] = None
+    price: float
+    tax: Optional[float] = None
+    tags: Set[str] = []
 
+
+@app.post("/items/", response_model=Item, summary="Create an item")
+async def create_item(item: Item):
+    """
+    Create an item with all the information:
+
+    - **name**: each item must have a name
+    - **description**: a long description
+    - **price**: required
+    - **tax**: if the item doesn't have tax, you can omit this
+    - **tags**: a set of unique tag strings for this item
+    \f
+    :param item: User input.
+    """
+    return item
 
 if __name__ == "__main__":
     uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True)
