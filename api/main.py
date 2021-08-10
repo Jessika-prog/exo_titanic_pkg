@@ -1,5 +1,4 @@
 from fastapi import FastAPI
-import joblib
 import random
 import pandas as pd
 import uvicorn
@@ -16,29 +15,7 @@ app = FastAPI()
 async def get_root():
     return {'message': 'Welcome to the dead or alive API '}
 
-print(f'{os.getcwd()}')
-
 model = ML().get_model()
-# prediction= ML()
-
-class Passenger(BaseModel):
-    pclass:int
-    sex:str
-    age:float
-    fare:float
-    embarked:str
-    who:str
-    alone:bool
-
-# def create_random_passenger():
-#     passenger_dict = {'pclass' : [random.randint(1,3)],
-#     'sex' : [random.choice(['male','female'])],
-#     'age' : [random.uniform(0.42,80)],
-#     'fare' : [random.uniform(0,500)],
-#     'embarked' : [random.choice(['S','C','Q'])],
-#     'who' : [random.choice(['child','man','woman'])],
-#     'alone' : [random.choice([True, False])]}
-#     return  pd.DataFrame(passenger_dict)
 
 #option 1
 @app.get("/prediction/{passenger_info}")
@@ -74,8 +51,33 @@ async def death_detector(pclass=1,sex='female',age=33,fare=45,embarked='S',who='
     else :
         result = "Alive"
     return {'état du passager à la fin de la croisiere':result, 'infos passager':passenger_dict}
-        
 
+# if __name__ == "__main__":
+#      uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True)
+        
+################# ---- Draft---- #######################
+
+# prediction= ML()
+
+class Passenger(BaseModel):
+    pclass:int
+    sex:str
+    age:float
+    fare:float
+    embarked:str
+    who:str
+    alone:bool
+
+# def create_random_passenger():
+#     passenger_dict = {'pclass' : [random.randint(1,3)],
+#     'sex' : [random.choice(['male','female'])],
+#     'age' : [random.uniform(0.42,80)],
+#     'fare' : [random.uniform(0,500)],
+#     'embarked' : [random.choice(['S','C','Q'])],
+#     'who' : [random.choice(['child','man','woman'])],
+#     'alone' : [random.choice([True, False])]}
+#     return  pd.DataFrame(passenger_dict)
+ 
 class Item(BaseModel):
     name: str
     description: Optional[str] = None
@@ -99,5 +101,3 @@ async def create_item(item: Item):
     """
     return item
 
-# if __name__ == "__main__":
-#      uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True)
