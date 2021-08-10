@@ -3,6 +3,7 @@ import joblib
 import random
 import pandas as pd
 import uvicorn
+import os
 
 from titanic_pkg.ml import ML
 
@@ -16,7 +17,7 @@ async def get_root():
     return {'message': 'Welcome to the dead or alive API '}
 
 
-model = joblib.load('DeadOrAlive.joblib')
+model = joblib.load(f'{os.getcwd()}/DeadOrAlive.joblib')
 # prediction= ML()
 
 class Passenger(BaseModel):
