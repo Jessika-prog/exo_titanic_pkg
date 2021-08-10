@@ -37,12 +37,22 @@ async def passenger_dict(pclass: int = Form(...),
     else:
         result = 'Yes'
     return {'Did you survive ?': result}
-    # return f'/prediction/{passengers}'
+
 
 
 @app.get('/prediction/{passengers}')
 async def survive_prediction(passengers:str):
-    X = pd.DataFrame(passengers)
+    list_params = passengers.split('&')
+    passenger = {
+        'pclass': [list_params[0]],
+        'sex': [list_params[1]],
+        'age': [list_params[2]],
+        'fare': [list_params[3]],
+        'embarked': [list_params[4]],
+        'who': [list_params[5]],
+        'alone': [list_params[6]]
+    }
+    X = pd.DataFrame(passenger)
     prediction = ML()
     pred = prediction.model_predict_test(X)
     if pred[0][0] == 0:
