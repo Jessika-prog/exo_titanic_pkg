@@ -1,7 +1,9 @@
 from sklearn.metrics import classification_report, plot_confusion_matrix
 from sklearn.model_selection import cross_val_score
 
-from joblib import dump
+import os
+
+from joblib import dump, load
 
 from titanic_pkg.preprocessing import Preprocessing
 from titanic_pkg.data import Data
@@ -38,4 +40,9 @@ class ML:
         
     def saving_model(self):
         fitted_model = self.model_fitting()   
-        dump(fitted_model,'../api/DeadOrAlive.joblib')
+        dump(fitted_model,'DeadOrAlive.joblib')
+        
+    def get_model(cls):
+        path = os.path.dirname(os.path.realpath(__file__))
+        model = load(f"{path}/DeadOrAlive.joblib")
+        return model

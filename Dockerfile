@@ -1,17 +1,18 @@
 FROM python:3.8-slim-buster
 
 # set a directory for the app
-WORKDIR /api
+# WORKDIR /api
 
 
 # copy all the files to the container
-COPY . .
+# COPY . .
 # COPY requirements.txt /requirements.txt
-# COPY ./api /api/api
-# COPY requirements.txt /requirements.txt
+COPY api /api
+COPY requirements.txt /requirements.txt
+COPY titanic_pkg /titanic_pkg
 
 # install dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install -r requirements.txt
 
 # ENV PYTHONPATH=/api
 

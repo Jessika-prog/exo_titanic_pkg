@@ -5,5 +5,9 @@ setup(
     version='0.0.1',
     packages=find_packages(),
     scripts=['scripts/titanic_script'],
-    requirements=['numpy', 'pandas', 'matplotlib', 'seaborn', 'scikit-learn', 'fastapi', 'pytest']
+    requirements=['numpy', 'pandas', 'matplotlib', 'seaborn', 'scikit-learn', 'fastapi', 'pytest','joblib'],
+    package_data={
+        "": ["*.joblib"],
+    },
+    include_package_data=True,
     )

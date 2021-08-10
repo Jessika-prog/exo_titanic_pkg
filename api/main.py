@@ -16,8 +16,9 @@ app = FastAPI()
 async def get_root():
     return {'message': 'Welcome to the dead or alive API '}
 
+print(f'{os.getcwd()}')
 
-model = joblib.load(f'{os.getcwd()}/DeadOrAlive.joblib')
+model = ML().get_model()
 # prediction= ML()
 
 class Passenger(BaseModel):
@@ -98,5 +99,5 @@ async def create_item(item: Item):
     """
     return item
 
-if __name__ == "__main__":
-    uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True)
+# if __name__ == "__main__":
+#      uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True)
