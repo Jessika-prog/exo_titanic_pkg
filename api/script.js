@@ -1,9 +1,11 @@
 
 const btn = document.getElementById('test')
-const myForm = document.getElementById('titanicForm')
-var formData = new FormData(myForm)
+
 
 btn.addEventListener('click', (event)=> {
+  var myForm = document.getElementById('titanicForm')
+  var formData = new FormData(myForm)
+
   event.preventDefault()
 
   var request = new XMLHttpRequest();
@@ -27,9 +29,6 @@ btn.addEventListener('click', (event)=> {
 
         document.body.insertBefore(newDiv, myForm)
       }
-
-
     }}
   request.send(formData);
-
 })
