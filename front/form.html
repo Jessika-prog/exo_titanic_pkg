@@ -11,7 +11,8 @@
 
 <body>
   <h1>AURIEZ-VOUS SURVECU?</h1>
-  <form action="http://0.0.0.0:5000/passenger_dict/" method="POST">
+  <!-- <form action="http://127.0.0.1:8000/passenger_dict/" method="POST"> -->
+    <form id="titanicForm" name="titanicForm">
         <div>
           <label for="">Classe:</label>
           <select name="pclass" id="">
@@ -29,11 +30,11 @@
     </div>
         <div>
           <label for="">Age:</label>
-          <input type="number" name="age" id="">
+          <input type="number" name="age" id="" >
         </div>
     <div>
       <label for="">Prix du billet:</label>
-      <input type="number" name="fare" id="">
+      <input type="number" name="fare" id="" >
     </div>
     <div>
       <label for="">Ville d'embarquement:</label>
@@ -58,8 +59,9 @@
         <option value="false">Accompagné</option>
       </select>
     </div>
-    <button type="submit">Lancer la prédiction</button>
+    <button id='test' type="submit">Lancer la prédiction</button>
   </form>
+  <script src="../api/script.js"></script>
 </body>
 
 </html>

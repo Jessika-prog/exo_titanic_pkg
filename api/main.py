@@ -1,10 +1,28 @@
 import pandas as pd
 from fastapi import FastAPI, Form
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import HTMLResponse
 import uvicorn
 
 from titanic_pkg.ml import ML
 
 app = FastAPI()
+
+origins = [
+    "http://localhost.tiangolo.com",
+    "https://localhost.tiangolo.com",
+    "http://localhost",
+    "http://127.0.0.1:5500",
+    "http://localhost:8000",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 @app.get('/')
@@ -36,31 +54,14 @@ async def passenger_dict(pclass: int = Form(...),
         result = 'No'
     else:
         result = 'Yes'
-    return {'Did you survive ?': result}
+    return  {'result': result}
 
 
 
-@app.get('/prediction/{passengers}')
-async def survive_prediction(passengers:str):
-    list_params = passengers.split('&')
-    passenger = {
-        'pclass': [list_params[0]],
-        'sex': [list_params[1]],
-        'age': [list_params[2]],
-        'fare': [list_params[3]],
-        'embarked': [list_params[4]],
-        'who': [list_params[5]],
-        'alone': [list_params[6]]
-    }
-    X = pd.DataFrame(passenger)
-    prediction = ML()
-    pred = prediction.model_predict_test(X)
-    if pred[0][0] == 0:
-        result = 'No'
-    else:
-        result = 'Yes'
-    return {'Did you survive ?': result}
+@app.get('/result/get')
+async def test():
+    return {'YEAH':'ohohoh'}
 
 
 if __name__ == "__main__":
-    uvicorn.run("main:app", host="0.0.0.0", port=5000, reload=True)
+    uvicorn.run("main:app", host="localhost", port=8000, reload=True)
