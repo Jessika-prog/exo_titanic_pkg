@@ -1,7 +1,7 @@
 import pandas as pd
 from fastapi import FastAPI, Form
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import HTMLResponse
+
 import uvicorn
 
 from titanic_pkg.ml import ML
@@ -15,6 +15,7 @@ origins = [
     "http://127.0.0.1:5500",
     "http://localhost:8000",
     "https://deadtitanic.azurewebsites.net/",
+    "https://jessika-prog.github.io/exo_titanic_pkg",
 ]
 
 app.add_middleware(
