@@ -34,8 +34,7 @@ https://docs.microsoft.com/fr-fr/cli/azure/install-azure-cli-linux?pivots=apt
  * Connect to portal.azure         
  * Select create container registries & create a container registry       
  * connect to registry with azure cli :       
- az login    
- az acr login --name <registry-name>     
+ az login       
  3.4 Add a docker container to Azure registry  
  * Connection to azure remote registry from terminal :     
  az acr login --name <registry-name>    
