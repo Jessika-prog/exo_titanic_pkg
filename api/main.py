@@ -56,12 +56,5 @@ async def passenger_dict(pclass: int = Form(...),
         result = 'Yes'
     return  {'result': result}
 
-
-
-@app.get('/result/get')
-async def test():
-    return {'YEAH':'ohohoh'}
-
-
 if __name__ == "__main__":
     uvicorn.run("main:app", host="localhost", port=8000, reload=True)
