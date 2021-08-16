@@ -41,7 +41,6 @@ https://docs.microsoft.com/fr-fr/cli/azure/install-azure-cli-linux?pivots=apt
  az acr login --name <registry-name>    
  * Before you push an image to the registry, you must tag it with the full name of your Registry Connection server. The name of the connection server is in the format <registry-name> .azurecr.io (all in lowercase)(==login-server). For example: mycontainerregistry.azurecr.io.  
  **attention nom serveur en miniscule**  
- 
  docker tag <dockerimagename> <login-server>/<nomimagesurazure>:v1   
  * push tagged image to azure  :        
 docker push <login-server>/<nomimagesurazure>:v1      
@@ -53,6 +52,9 @@ docker run <login-server>/<nomimagesurazure>:v1
 3.5 Deploy image on app services      
 **if using vscode with azure and docker extension** go to folder registries to the image previously created    
 Click on "Deploy Image to Azure App Service" and follow the instructions     
+**If error of service subscription after previous instruction set example: Microsoft.Web** please add this service to your subscription by following the next steps : 
+ https://docs.microsoft.com/fr-fr/azure/azure-resource-manager/templates/error-register-resource-provider     
+ **If error of access right pleasee check in your container registry the access keys and admin user setups**    
 3.6  Add a setting named WEBSITES_PORT        
 https://docs.microsoft.com/en-us/azure/developer/python/tutorial-deploy-containers-02        
 * To set WEBSITES_PORT, switch to the Azure: App Service explorer, expand the node for your new App Service (refresh if necessary), then right-click Application Settings and select Add New Setting. At the prompts, enter WEBSITES_PORT as the key and the port number for the value.
