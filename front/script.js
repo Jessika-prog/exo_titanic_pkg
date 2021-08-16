@@ -19,9 +19,9 @@ btn.addEventListener('click', () => {
 
       var img = document.createElement("img");
       if (survie.result === "No") {
-        img.src = "Jack.jpg";
+        img.src = "front/Jack.jpg";
       } else if (survie.result === "Yes") {
-        img.src = "Rose.jpg";
+        img.src = "front/Rose.jpg";
       }
       var modal = document.getElementById("resultat");
       modal.classList.remove('hidden')
