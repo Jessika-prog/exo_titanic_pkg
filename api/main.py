@@ -16,7 +16,7 @@ origins = [
     "http://localhost:8000",
     "https://deadtitanic.azurewebsites.net/",
     "https://jessika-prog.github.io/",
-    "https://jessika-prog.github.io//exo_titanic_pk/#resultat:1"
+    "https://jessika-prog.github.io/exo_titanic_pk/#resultat:1"
 ]
 
 app.add_middleware(
