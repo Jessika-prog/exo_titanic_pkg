@@ -9,7 +9,7 @@ btn.addEventListener('click', () => {
 
   var request = new XMLHttpRequest();
 
-  request.open("POST", "http://127.0.0.1:8000/passenger_dict/");
+  request.open("POST", "https://titanicdeadoralive.azurewebsites.net/passenger_dict/");
 
   request.onreadystatechange = function () {
 
