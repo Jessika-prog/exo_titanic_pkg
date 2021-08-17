@@ -8,7 +8,7 @@ All information on : https://fastapi.tiangolo.com/tutorial/
 1.2 Use main file in api folder to create your api app.    
 Instanciate your api "app = FastAPI()" and then customize your path operations        
 1.3 Use "uvicorn main:app --reload" to launch the api        
-API docs available : "http://127.0.0.1:8000/docs"        
+API docs available : "https://titanicdeadoralive.azurewebsites.net/docs"        
 
 
 ## 2. Install Docker
