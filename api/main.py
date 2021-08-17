@@ -8,13 +8,14 @@ from titanic_pkg.ml import ML
 
 app = FastAPI()
 
+# Autoriser les requêtes CORS avec CORSMiddleware
 origins = [
     "http://localhost.tiangolo.com", "https://localhost.tiangolo.com",
     "http://localhost", "http://127.0.0.1:5500", "http://localhost:8000",
     "https://deadtitanic.azurewebsites.net/",
     "https://jessika-prog.github.io/",
-    "https://jessika-prog.github.io/exo_titanic_pk"
-    "https://jessika-prog.github.io/exo_titanic_pk/#resultat"
+    "https://jessika-prog.github.io/exo_titanic_pk",
+    "https://jessika-prog.github.io/exo_titanic_pk/#resultat",
     "https://jessika-prog.github.io/exo_titanic_pk/#resultat:1"
 ]
 
@@ -31,7 +32,8 @@ app.add_middleware(
 async def get_root():
     return {'message': 'Welcome to titanic survivor prediction app'}
 
-
+# Utilisation de FormData pour récupérer les données envoyées par script.js
+# Passage des données dans la pipeline pour le préprocessing et dans la méthode de prédiction
 @app.post("/passenger_dict/")
 async def passenger_dict(pclass: int = Form(...),
                          sex: str = Form(...),
