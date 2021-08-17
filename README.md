@@ -41,7 +41,7 @@ https://docs.microsoft.com/fr-fr/cli/azure/install-azure-cli-linux?pivots=apt
  * Connection to azure remote registry from terminal :     
  az acr login --name <registry-name>    
  * Before you push an image to the registry, you must tag it with the full name of your Registry Connection server. The name of the connection server is in the format <registry-name> .azurecr.io (all in lowercase)(==login-server). For example: mycontainerregistry.azurecr.io.  
- **attention nom serveur en miniscule**  
+ **Warning: use lower case for server name**  
  docker tag <dockerimagename> <login-server>/<nomimagesurazure>:v1   
  * push tagged image to azure  :        
 docker push <login-server>/<nomimagesurazure>:v1      
