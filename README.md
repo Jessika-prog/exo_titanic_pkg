@@ -1,3 +1,5 @@
+Website DeadOrAlive Titanic : "https://jessika-prog.github.io/exo_titanic_pkg/"
+
 Documentation to put in production an ML API on AZURE using fastapi & Docker
 
 
