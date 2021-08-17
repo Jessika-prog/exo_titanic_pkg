@@ -62,7 +62,8 @@ https://docs.microsoft.com/en-us/azure/developer/python/tutorial-deploy-containe
 
 ## 4. Front-end (html, vanilla js, css)
 The html form send input values at script.js. With FormData method, the script catch data, send it at api and catch the response to generate a new html window.
- 
+Production made with Github Pages
+
 ## 5. Machine Learning
 Machine Learning (dataframe reading, visualization, preprocessing and prediction) is on titanic_pkg directory and OOP structured
 
