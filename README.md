@@ -26,7 +26,7 @@ __Choose version depending on you system__
 2.6 test the api   
 
 ## 3. Azure
-3.1 Utilisation d'azure container registries     
+3.1 Using azure container registries     
  **When creating a registry avoid uppercase to limit authentifications issues**        
 https://docs.microsoft.com/fr-fr/azure/app-service/quickstart-custom-container?tabs=python&pivots=container-linux     
 https://docs.microsoft.com/fr-fr/azure/container-registry/container-registry-get-started-portal    
