@@ -35,8 +35,3 @@ class ML:
         conf_matrix = plot_confusion_matrix(fitted_model, self.X_test, self.y_test).figure_
         scores_cross = cross_val_score(fitted_model, self.X_test, self.y_test, cv=5)
         return accuracy_score, class_report, conf_matrix, scores_cross
-
-
-
-    def unseen_values(self,X=[]):
-        pass
