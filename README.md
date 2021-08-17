@@ -20,9 +20,9 @@ __Choose version depending on you system__
 2.2 create Dockerfile       
 2.3 add custom api to it   
 2.4 Build docker image      
-"docker build -t  <image_name>.    
+"docker build -t  \<image_name\>.    
 2.5 Launch docker container on localhost        
-"docker run --name <custom_container_name> -p <Hostport>:<Containerport> <image_name>"      
+"docker run --name \<custom_container_name\> -p \<Hostport\>:\<Containerport\> \<image_name\>"      
 2.6 test the api   
 
 ## 3. Azure
@@ -40,15 +40,15 @@ https://docs.microsoft.com/fr-fr/cli/azure/install-azure-cli-linux?pivots=apt
  3.4 Add a docker container to Azure registry  
  * Connection to azure remote registry from terminal :     
  az acr login --name \<registry-name\>    
- * Before you push an image to the registry, you must tag it with the full name of your Registry Connection server. The name of the connection server is in the format <registry-name> .azurecr.io (all in lowercase)(==login-server). For example: mycontainerregistry.azurecr.io.  
+ * Before you push an image to the registry, you must tag it with the full name of your Registry Connection server. The name of the connection server is in the format \<registry-name\> .azurecr.io (all in lowercase)(==login-server). For example: mycontainerregistry.azurecr.io.  
  **Warning: use lower case for server name**  
- docker tag <dockerimagename> <login-server>/<nomimagesurazure>:v1   
+ docker tag \<dockerimagename\> \<login-server\>/\<nomimagesurazure\>:v1   
  * push tagged image to azure  :        
-docker push <login-server>/<nomimagesurazure>:v1      
+docker push \<login-server\>/\<nomimagesurazure\>:v1      
 * remove local docker image :    
-docker rmi <login-server>/<nomimagesurazure>:v1    
+docker rmi \<login-server\>/\<nomimagesurazure\>:v1    
 * execute from azure registry container image :    
-docker run <login-server>/<nomimagesurazure>:v1    
+docker run \<login-server\>/\<nomimagesurazure\>:v1    
 
 3.5 Deploy image on app services      
 **if using vscode with azure and docker extension** go to folder registries to the image previously created    
