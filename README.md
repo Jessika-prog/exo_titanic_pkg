@@ -83,8 +83,10 @@ Click on "Deploy Image to Azure App Service" and follow the instructions
  https://docs.microsoft.com/fr-fr/azure/azure-resource-manager/templates/error-register-resource-provider     
  **If error of access right pleasee check in your container registry the access keys and admin user setups**    
  
-3.6 Continuous deployment : 
+3.6 Continuous deployment :    
 https://docs.microsoft.com/fr-fr/learn/modules/deploy-run-container-app-service/6-update-web-app
+
+az acr task create --registry \<container_registry_name\> --name buildwebapp --image webimage --context \<project_git_repo\> --file Dockerfile --git-access-token \<access_token\>
 
 ## 4. Front-end (html, vanilla js, css)
 The html form send input values at script.js. With FormData method, the script catch data, send it at api and catch the response to generate a new html window.
