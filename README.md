@@ -23,11 +23,11 @@ Documentation to put in production an ML API on AZURE using fastapi & Docker
 ├── setup.py     
 ├── tests     
 └── titanic_pkg    
-|    ├── data.py      
-|    ├── __init__.py      
-|    ├── ml.py        
-|    ├── pipeline_class.py     
-|    ├── preprocessing.py      
+│   ├── data.py      
+│   ├── __init__.py      
+│   ├── ml.py        
+│   ├── pipeline_class.py     
+│   └── preprocessing.py      
 
 ## 1. Fast API :
 
