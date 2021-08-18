@@ -1,3 +1,5 @@
+Website DeadOrAlive Titanic : "https://jessika-prog.github.io/exo_titanic_pkg/"
+
 Documentation to put in production an ML API on AZURE using fastapi & Docker
 
 
@@ -8,7 +10,7 @@ All information on : https://fastapi.tiangolo.com/tutorial/
 1.2 Use main file in api folder to create your api app.    
 Instanciate your api "app = FastAPI()" and then customize your path operations        
 1.3 Use "uvicorn main:app --reload" to launch the api        
-API docs available : "http://127.0.0.1:8000/docs"        
+API docs available : "https://titanicdeadoralive.azurewebsites.net/docs"        
 
 
 ## 2. Install Docker
@@ -18,13 +20,13 @@ __Choose version depending on you system__
 2.2 create Dockerfile       
 2.3 add custom api to it   
 2.4 Build docker image      
-"docker build -t  <image_name>.    
+"docker build -t  \<image_name\>.    
 2.5 Launch docker container on localhost        
-"docker run --name <custom_container_name> -p <Hostport>:<Containerport> <image_name>"      
+"docker run --name \<custom_container_name\> -p \<Hostport\>:\<Containerport\> \<image_name\>"      
 2.6 test the api   
 
 ## 3. Azure
-3.1 Utilisation d'azure container registries     
+3.1 Using azure container registries     
  **When creating a registry avoid uppercase to limit authentifications issues**        
 https://docs.microsoft.com/fr-fr/azure/app-service/quickstart-custom-container?tabs=python&pivots=container-linux     
 https://docs.microsoft.com/fr-fr/azure/container-registry/container-registry-get-started-portal    
@@ -37,16 +39,16 @@ https://docs.microsoft.com/fr-fr/cli/azure/install-azure-cli-linux?pivots=apt
  az login       
  3.4 Add a docker container to Azure registry  
  * Connection to azure remote registry from terminal :     
- az acr login --name <registry-name>    
- * Before you push an image to the registry, you must tag it with the full name of your Registry Connection server. The name of the connection server is in the format <registry-name> .azurecr.io (all in lowercase)(==login-server). For example: mycontainerregistry.azurecr.io.  
- **attention nom serveur en miniscule**  
- docker tag <dockerimagename> <login-server>/<nomimagesurazure>:v1   
+ az acr login --name \<registry-name\>    
+ * Before you push an image to the registry, you must tag it with the full name of your Registry Connection server. The name of the connection server is in the format \<registry-name\> .azurecr.io (all in lowercase)(==login-server). For example: mycontainerregistry.azurecr.io.  
+ **Warning: use lower case for server name**  
+ docker tag \<dockerimagename\> \<login-server\>/\<nomimagesurazure\>:v1   
  * push tagged image to azure  :        
-docker push <login-server>/<nomimagesurazure>:v1      
+docker push \<login-server\>/\<nomimagesurazure\>:v1      
 * remove local docker image :    
-docker rmi <login-server>/<nomimagesurazure>:v1    
+docker rmi \<login-server\>/\<nomimagesurazure\>:v1    
 * execute from azure registry container image :    
-docker run <login-server>/<nomimagesurazure>:v1    
+docker run \<login-server\>/\<nomimagesurazure\>:v1    
 
 3.5 Deploy image on app services      
 **if using vscode with azure and docker extension** go to folder registries to the image previously created    
@@ -58,5 +60,10 @@ Click on "Deploy Image to Azure App Service" and follow the instructions
 https://docs.microsoft.com/en-us/azure/developer/python/tutorial-deploy-containers-02        
 * To set WEBSITES_PORT, switch to the Azure: App Service explorer, expand the node for your new App Service (refresh if necessary), then right-click Application Settings and select Add New Setting. At the prompts, enter WEBSITES_PORT as the key and the port number for the value.
 
+## 4. Front-end (html, vanilla js, css)
+The html form send input values at script.js. With FormData method, the script catch data, send it at api and catch the response to generate a new html window.
+Production made with Github Pages
 
+## 5. Machine Learning
+Machine Learning (dataframe reading, visualization, preprocessing and prediction) is on titanic_pkg directory and OOP structured
 
