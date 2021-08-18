@@ -122,7 +122,7 @@ Production made with Github Pages
 Machine Learning (dataframe reading, visualization, preprocessing and prediction) is on titanic_pkg directory and OOP structured
 
 ## Contributors : 
-Julie CHARRIER https://github.com/JulieCHARRIER
-Jessika MARTIN https://github.com/Jessika-prog
-Loïc ROMÉRO https://github.com/ROL-1/
+Julie CHARRIER https://github.com/JulieCHARRIER \n
+Jessika MARTIN https://github.com/Jessika-prog \n
+Loïc ROMÉRO https://github.com/ROL-1/ \n
 Pierre BEYLARD https://github.com/PierreBeylard
