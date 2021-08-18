@@ -93,7 +93,8 @@ Production made with Github Pages
 * Age - float
 * Fare - float 
 * Port of Embarkation - string 
-* ALone : Do you travel alone ? - Boolean
+* Passenger type : man, woman, child - string
+* Alone : Do you travel alone ? - Boolean
 
 ## 5. Machine Learning : 
 Machine Learning (dataframe reading, visualization, preprocessing and prediction) is on titanic_pkg directory and OOP structured
