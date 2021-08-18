@@ -8,7 +8,6 @@ body {
   overflow-x: hidden;
   margin: 0;
   padding: 0;
-
 }
 
 body::after {
@@ -25,14 +24,14 @@ body::after {
 }
 
 h1 {
-  color: rgba(247, 231, 210);
+  color: #C6D6E3;
 }
 
 form {
   top: calc(50% - attr(height) / 2);
   left: calc(50% - attr(height) / 2);
   position: relative;
-  background-color: rgba(247, 231, 210, 0.537);
+  background-color: rgba(216, 229, 240, 0.537);
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -48,41 +47,38 @@ form {
 
 .modal {
   position: fixed;
-  top: 10%;
-  left: 25%;
+  top: 15%;
+  left: 30%;
   background: rgba(0, 0, 0, 0.5);
   z-index: 10000;
   opacity: 0;
   pointer-events: none;
 }
 
-.modal>div>p>img {
-  top: calc(25% - attr(height) / 2);
-}
-
 .modal>div {
-  width: 500px;
-  background: #fff;
+  background: #D8E5F0;
   position: relative;
   margin: auto;
   animation: minimise 100ms linear;
-  padding: 30px;
+  padding: 5px;
   border-radius: 7px;
   box-shadow: 0 3px 20px rgba(0, 0, 0, 0.9);
-  text-shadow: 0 1px 0 #fff;
+  text-shadow: 0 1px 0 #D8E5F0;
   width: fit-content;
   height: fit-content;
 }
 
-.show {
-  animation-name: bounce;
+p {
+  color: #95a5b1;
+  font-size: 1.20em;
+  text-align: center;
+font-weight: bold;
 }
-
 a#predire {
   margin: 1em auto;
   display: block;
   width: 200px;
-  background-color: #ccc;
+  background-color: #C6D6E3;
   text-align: center;
   text-decoration: none;
   color: black;
@@ -106,17 +102,17 @@ a#predire {
   position: absolute;
   right: -10px;
   top: -10px;
-  width: 1.5em;
+  width: 1em;
   padding: 1px 1px 1px 2px;
   text-decoration: none;
   text-shadow: none;
   text-align: center;
   font-weight: bold;
-  background: #000;
-  color: #fff;
-  border: 3px solid #fff;
-  border-radius: 20px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  background: #4A4C54;
+  color: #C6D6E3;
+  border: 3px solid #C6D6E3;
+  border-radius: 50%;
+  box-shadow: 0 1px 3px #4A4C54;
 }
 
 .modal a[href=""]:focus:after, .modal a[href=""]:hover:after {
@@ -160,7 +156,7 @@ a#predire {
     transform: scale3d(1, 1, 1);
   }
   100% {
-    transform: scale3d(0, 0,0);
+    transform: scale3d(0, 0, 0);
   }
 }
 
