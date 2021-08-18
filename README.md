@@ -85,7 +85,9 @@ Click on "Deploy Image to Azure App Service" and follow the instructions
  
 3.6 Continuous deployment :    
 https://docs.microsoft.com/fr-fr/learn/modules/deploy-run-container-app-service/6-update-web-app
-
+* check webhook
+* check continuous deployment in appservices/deployment/ deployment center in azure portal
+* Extend continuous integration to source control by using a Container Registry task
 az acr task create --registry \<container_registry_name\> --name buildwebapp --image webimage --context \<project_git_repo\> --file Dockerfile --git-access-token \<access_token\>
 
 ## 4. Front-end (html, vanilla js, css)
