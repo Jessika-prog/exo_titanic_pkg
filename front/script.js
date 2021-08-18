@@ -20,14 +20,18 @@ btn.addEventListener('click', () => {
       console.log(survie.result);
 
       var img = document.createElement("img");
+      var answer = document.createElement("p");
       if (survie.result === "No") {
+        answer.innerHTML = "Vous n'auriez pas survécu 😔"
         img.src = "front/Jack.jpg";
       } else if (survie.result === "Yes") {
+        answer.innerHTML = "Vous auriez survécu 🎉"
         img.src = "front/Rose.jpg";
       }
       var modal = document.getElementById("resultat");
       modal.classList.remove('hidden')
       var photo = document.getElementById('photoResultat');
+      photo.appendChild(answer);
       photo.appendChild(img);
     }
   }
