@@ -9,11 +9,8 @@ btn.addEventListener('click', () => {
   var formData = new FormData(myForm)
 
   var request = new XMLHttpRequest();
-<<<<<<< HEAD
 
-=======
 // envoie des données à l'api
->>>>>>> 3ad5566b19aa401281345b5ac40c5280fd48a2ce
   request.open("POST", "https://titanicdeadoralive.azurewebsites.net/passenger_dict/");
 
   request.onreadystatechange = function () {
