@@ -31,11 +31,11 @@ Documentation to put in production an ML API on AZURE using fastapi & Docker
 
 ## 1. Fast API :
 
-1.1 Dowload and install fastapi : pip install fastapi[all]    
+1.1 Dowload and install fastapi : `pip install fastapi[all]`    
 All information on : https://fastapi.tiangolo.com/tutorial/    
 1.2 Use main file in api folder to create your api app.    
-Instanciate your api "app = FastAPI()" and then customize your path operations        
-1.3 Use "uvicorn main:app --reload" to launch the api        
+Instanciate your api "`app = FastAPI()`" and then customize your path operations        
+1.3 Use ```uvicorn main:app --reload``` to launch the api        
 API docs available : "https://titanicdeadoralive.azurewebsites.net/docs"        
 
 
@@ -43,13 +43,13 @@ API docs available : "https://titanicdeadoralive.azurewebsites.net/docs"
 
 2.1 dowload and install docker https://docs.docker.com/get-docker/          
 __Choose version depending on you system__    
-2.2 create Dockerfile       
-2.3 add custom api to it   
+2.2 Create Dockerfile       
+2.3 Add custom api to it   
 2.4 Build docker image      
-"docker build -t  \<image_name\>.    
+```docker build -t  <image_name\> .```    
 2.5 Launch docker container on localhost        
-"docker run --name \<custom_container_name\> -p \<Hostport\>:\<Containerport\> \<image_name\>"      
-2.6 test the api   
+``` docker run --name <custom_container_name> -p <Hostport>:<Containerport> <image_name> ```   
+2.6 Test the api   
 
 ## 3. Azure
 3.1 Using azure container registries     
@@ -62,19 +62,31 @@ https://docs.microsoft.com/fr-fr/cli/azure/install-azure-cli-linux?pivots=apt
  * Connect to portal.azure         
  * Select create container registries & create a container registry       
  * connect to registry with azure cli :       
- az login       
+ ```
+ az login 
+ ```
  3.4 Add a docker container to Azure registry  
- * Connection to azure remote registry from terminal :     
- az acr login --name \<registry-name\>    
- * Before you push an image to the registry, you must tag it with the full name of your Registry Connection server. The name of the connection server is in the format \<registry-name\> .azurecr.io (all in lowercase)(==login-server). For example: mycontainerregistry.azurecr.io.  
+ Connection to azure remote registry from terminal :     
+ ```
+ az acr login --name <registry-name> 
+ ```
+ Before you push an image to the registry, you must tag it with the full name of your Registry Connection server. The name of the connection server is in the format \<registry-name\> .azurecr.io (all in lowercase)(==login-server). For example: mycontainerregistry.azurecr.io.  
  **Warning: use lower case for server name**  
+ ```
  docker tag \<dockerimagename\> \<login-server\>/\<nomimagesurazure\>:v1   
- * push tagged image to azure  :        
-docker push \<login-server\>/\<nomimagesurazure\>:v1      
-* remove local docker image :    
-docker rmi \<login-server\>/\<nomimagesurazure\>:v1    
-* execute from azure registry container image :    
+ ```
+ Push tagged image to azure  :  
+```      
+docker push \<login-server\>/\<nomimagesurazure\>:v1   
+```
+Remove local docker image :    
+```
+docker rmi \<login-server\>/\<nomimagesurazure\>:v1  
+```
+Execute from azure registry container image :
+```    
 docker run \<login-server\>/\<nomimagesurazure\>:v1    
+```
 
 3.5 Deploy image on app services      
 **if using vscode with azure and docker extension** go to folder registries to the image previously created    
@@ -89,7 +101,9 @@ https://docs.microsoft.com/fr-fr/learn/modules/deploy-run-container-app-service/
 * Check continuous deployment in appservices/deployment/ deployment center in azure portal
 * Before running this command, you need to create a **GitHub personal access token** with permissions to create a webhook in your repository. For private repositories, the token will also need full repository read permissions.
 * Extend continuous integration to source control by using a Container Registry task         
-az acr task create --registry \<container_registry_name\> --name buildwebapp --image webimage --context \<project_git_repo\> --file Dockerfile --git-access-token \<access_token\>
+```
+az acr task create --registry <container_registry_name> --name buildwebapp --image webimage --context <project_git_repo> --file Dockerfile --git-access-token <access_token>
+```
 
 ## 4. Front-end (html, vanilla js, css)
 The html form send input values at script.js. With FormData method, the script catch data, send it at api and catch the response to generate a new html window.
