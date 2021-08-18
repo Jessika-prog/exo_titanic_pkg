@@ -2,6 +2,32 @@ Website DeadOrAlive Titanic : "https://jessika-prog.github.io/exo_titanic_pkg/"
 
 Documentation to put in production an ML API on AZURE using fastapi & Docker
 
+## Project architecture :    
+├── api      
+│   ├── main.py    
+├── Dockerfile       
+├── front       
+│   ├── Jack.jpg       
+│   ├── Rose.jpg         
+│   ├── script.js        
+│   ├── style.css       
+│   └── titanic.jpg     
+├── index.html        
+├── Makefile          
+├── notebooks         
+│   └── titanic.ipynb        
+├── README.md      
+├── requirements.txt     
+├── scripts    
+│   └── titanic_script      
+├── setup.py     
+├── tests     
+└── titanic_pkg    
+    ├── data.py      
+    ├── __init__.py      
+    ├── ml.py        
+    ├── pipeline_class.py     
+    ├── preprocessing.py      
 
 ## 1. Fast API :
 
@@ -61,6 +87,16 @@ Click on "Deploy Image to Azure App Service" and follow the instructions
 The html form send input values at script.js. With FormData method, the script catch data, send it at api and catch the response to generate a new html window.
 Production made with Github Pages
 
-## 5. Machine Learning
+7 variables used for the prediction. These variables describe the passenger : 
+* Ticket class : 1, 2, 3 - integer
+* Sex : male, female - string
+* Age - float
+* Fare - float 
+* Port of Embarkation - string 
+* ALone : Do you travel alone ? - Boolean
+
+## 5. Machine Learning : 
 Machine Learning (dataframe reading, visualization, preprocessing and prediction) is on titanic_pkg directory and OOP structured
+
+
 
