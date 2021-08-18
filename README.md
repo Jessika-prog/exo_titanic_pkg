@@ -53,7 +53,7 @@ __Choose version depending on you system__
 
 ## 3. Azure
 3.1 Using azure container registries     
- **When creating a registry avoid uppercase to limit authentifications issues**        
+ :warning: **When creating a registry avoid uppercase to limit authentifications issues**        
 https://docs.microsoft.com/fr-fr/azure/app-service/quickstart-custom-container?tabs=python&pivots=container-linux     
 https://docs.microsoft.com/fr-fr/azure/container-registry/container-registry-get-started-portal    
 3.2 Install  AZURE CLI   
@@ -71,7 +71,7 @@ https://docs.microsoft.com/fr-fr/cli/azure/install-azure-cli-linux?pivots=apt
  az acr login --name <registry-name> 
  ```
  Before you push an image to the registry, you must tag it with the full name of your Registry Connection server. The name of the connection server is in the format \<registry-name\> .azurecr.io (all in lowercase)(==login-server). For example: mycontainerregistry.azurecr.io.  
- **Warning: use lower case for server name**  
+ :warning: **Warning: use lower case for server name**  
  ```
  docker tag <dockerimagename> <login-server>/<nomimagesurazure>:v1   
  ```
