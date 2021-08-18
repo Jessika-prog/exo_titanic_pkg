@@ -89,7 +89,7 @@ docker run <login-server>/<nomimagesurazure>:v1
 ```
 
 3.5 Deploy image on app services      
-**if using vscode with azure and docker extension** go to folder registries to the image previously created    
+**If using vscode with azure and docker extension** go to folder registries to the image previously created    
 Click on "Deploy Image to Azure App Service" and follow the instructions     
 **If error of service subscription after previous instruction set example: Microsoft.Web** please add this service to your subscription by following the next steps : 
  https://docs.microsoft.com/fr-fr/azure/azure-resource-manager/templates/error-register-resource-provider     
@@ -121,5 +121,8 @@ Production made with Github Pages
 ## 5. Machine Learning : 
 Machine Learning (dataframe reading, visualization, preprocessing and prediction) is on titanic_pkg directory and OOP structured
 
-
-
+## Contributors : 
+Julie CHARRIER https://github.com/JulieCHARRIER
+Jessika MARTIN https://github.com/Jessika-prog
+Loïc ROMÉRO https://github.com/ROL-1/
+Pierre BEYLARD https://github.com/PierreBeylard
